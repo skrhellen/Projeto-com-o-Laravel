@@ -8,7 +8,7 @@
 </p>
 
 
-## About this Project - pweb2_laravel_2024_1
+## About this Project - Programação Web 2 com Laravel 2024.1
 Código-Fonte do Projeto desenvolvido durante as aulas de  desenvolvido durante as aulas de programação web 2 com PHP e Laravel no curso técnico integrado do IFSC 2024.1
 
 ## Quando baixar o projeto, o que fazer? 
