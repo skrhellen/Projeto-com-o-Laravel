@@ -23,6 +23,9 @@ Código-Fonte do Projeto desenvolvido durante as aulas de  desenvolvido durante 
 
 ----
 ## Diretorios mais usados do projeto
+#### Arquitetura de uma Aplicação em Laravel
+![Imagem1](https://github.com/lordjack/pweb2_2024_1/assets/6691621/e579df76-d7a0-4075-ae44-546f8b285c46)
+
 **Controller**
 `App/Http/Controllers`
 
