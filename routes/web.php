@@ -9,4 +9,8 @@ Route::get('/', function () {
 
 //routes/web.php
 Route::get('/aluno', [AlunoController::class,"index"]);
+//carrega o formulário
+Route::get('/aluno/create', [AlunoController::class,"create"]);
+//recebe os dados do formulario para ser salvo na função store
+Route::post('/aluno', [AlunoController::class,"store"])->name('aluno.store');
 

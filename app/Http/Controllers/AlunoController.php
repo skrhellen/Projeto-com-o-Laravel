@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aluno;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view("principal");
+        return view("aluno.list");
     }
 
     /**
@@ -19,7 +17,7 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+        return view("aluno.form");
     }
 
     /**
@@ -27,7 +25,14 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //app/http/Controller
+        Aluno::create(
+            [
+                'nome' => $request->nome,
+                'telefone' => $request->telefone,
+                'cpf' => $request->cpf,
+            ]
+        );
     }
 
     /**
