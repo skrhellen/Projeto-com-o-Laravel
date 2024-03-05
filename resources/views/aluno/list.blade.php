@@ -34,6 +34,12 @@
                     <td>{{ $item->cpf }}</td>
                     <td>Editar</td>
                     <td><a href="{{ url('aluno/destroy/' . $item->id) }}"> Excluir</a></td>
+                    <td><form action="{{ route('aluno.destroy',$item) }}" method="post">
+                            @method("DELETE")
+                            @csrf
+                            <input type="submit" value="Deletar">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

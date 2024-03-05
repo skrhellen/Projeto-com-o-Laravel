@@ -11,6 +11,17 @@
 <body>
 
     <div>
+        <div>
+            @if($errors->any())
+                <b>Por favor, verifique os erros abaixo:</b>
+                <ul>
+                    @foreach ($errors->all() as $error )
+                        <li> {{ $error}}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
         @yield('conteudo')
     </div>
 
