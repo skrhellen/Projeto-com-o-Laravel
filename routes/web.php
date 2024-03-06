@@ -6,7 +6,7 @@ use App\Http\Controllers\AlunoController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 //routes/web.php
 Route::get('/aluno', [AlunoController::class, "index"]);
 //carrega o formulário
@@ -21,6 +21,6 @@ Route::delete('/aluno/{$aluno}',
     ->name('aluno.edit');
  Route::post('/aluno',
   [AlunoController::class, "update"])->name('aluno.update');
-
+*/
+Route::resource('aluno', AlunoController::class);
 Route::post('/aluno/search', [AlunoController::class, "search"])->name('aluno.search');
-

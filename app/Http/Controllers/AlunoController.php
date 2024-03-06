@@ -33,14 +33,14 @@ class AlunoController extends Controller
         //app/http/Controller
 
         $request->validate([
-            'nome'=>"required|max:100",
-            'cpf'=>"required|max:16",
-            'telefone'=>"nullable"
-        ],[
-            'nome.required' =>"O :attribute é obrigatório",
-            'nome.max'=>"Só é permitido 100 caracteres",
-            'cpf.required' =>"O :attribute é obrigatório",
-            'cpf.max'=>"Só é permitido 16 caracteres",
+            'nome' => "required|max:100",
+            'cpf' => "required|max:16",
+            'telefone' => "nullable"
+        ], [
+            'nome.required' => "O :attribute é obrigatório",
+            'nome.max' => "Só é permitido 100 caracteres",
+            'cpf.required' => "O :attribute é obrigatório",
+            'cpf.max' => "Só é permitido 16 caracteres",
         ]);
 
         Aluno::create(
@@ -50,6 +50,7 @@ class AlunoController extends Controller
                 'cpf' => $request->cpf,
             ]
         );
+        return redirect('aluno');
     }
 
     /**
@@ -67,7 +68,7 @@ class AlunoController extends Controller
     {
         $dado = Aluno::findOrFail($id);
 
-        return view("aluno.form",['dado'=>$dado]);
+        return view("aluno.form", ['dado' => $dado]);
     }
 
     /**
@@ -75,27 +76,29 @@ class AlunoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-         //app/http/Controller
+        //app/http/Controller
 
-         $request->validate([
-            'nome'=>"required|max:100",
-            'cpf'=>"required|max:16",
-            'telefone'=>"nullable"
-        ],[
-            'nome.required' =>"O :attribute é obrigatório",
-            'nome.max'=>"Só é permitido 100 caracteres",
-            'cpf.required' =>"O :attribute é obrigatório",
-            'cpf.max'=>"Só é permitido 16 caracteres",
+        $request->validate([
+            'nome' => "required|max:100",
+            'cpf' => "required|max:16",
+            'telefone' => "nullable"
+        ], [
+            'nome.required' => "O :attribute é obrigatório",
+            'nome.max' => "Só é permitido 100 caracteres",
+            'cpf.required' => "O :attribute é obrigatório",
+            'cpf.max' => "Só é permitido 16 caracteres",
         ]);
 
         Aluno::updateOrCreate(
-            ['id'=>$request->id],
+            ['id' => $request->id],
             [
                 'nome' => $request->nome,
                 'telefone' => $request->telefone,
                 'cpf' => $request->cpf,
             ]
         );
+
+        return redirect('aluno');
     }
 
     /**
