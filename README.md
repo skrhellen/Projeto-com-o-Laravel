@@ -102,6 +102,29 @@ Código-Fonte do Projeto desenvolvido durante as aulas de  desenvolvido durante 
 **Atualizar arquivos do projeto local de acordo com o repositorio do Git remoto**  
 `git pull`
 
+## Dicas atalhos no VSCode
+[Vídeo com as dicas](https://youtu.be/MZgbd7bjCTk?si=0zN4B2YsXLU3a9Z8) 
+
+**Duplicar Linha**  
+`Shift + Alt + Seta`  
+**Mover Linha**  
+`Alt + Seta`  
+**Apagar Linha**  
+`Ctrl + Shift + K`  
+**Multi Ocorrências**  
+`Ctrl + D`  
+**Multi Seleção**  
+`Alt + Click`  
+**Zen Mode**  
+`Ctrl + K Z`   
+**IntelliSense**  
+`Ctrl + Espaço`   
+**Apagar a linha**  
+`Ctrl+Shift+K`   
+**Cria a estrutura básica de HTML**  
+`Alt + ! + tab`   
+**Mostrar os atalhos dos comandos**  
+`Ctrl+k Ctrl+s`   
 ### Links Úteis
 - [Documentação oficial do Laravel](https://laravel.com/docs).
 - [Correção do Erro de instalação do login Breeze](https://stackoverflow.com/questions/72798465/vite-manifest-not-found-at-c-users-hp-example-app-public-build-manifest-json)
