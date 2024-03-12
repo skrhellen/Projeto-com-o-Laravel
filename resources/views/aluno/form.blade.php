@@ -32,6 +32,13 @@
     <input type="text" name="cpf" class="form-control"
         value="@if (!empty($dado->cpf)) {{ $dado->cpf }}@elseif (!empty(old('cpf'))){{ old('cpf') }}@else{{ '' }} @endif"><br>
 
+    <label for="">Categorias</label><br>
+    <select name="categoria_id" class="form-select">
+        @foreach ($categorias as $item)
+            <option value="{{ $item->id }}">{{ $item->nome }}</option>
+        @endforeach
+    </select><br>
+
     <button type="submit">Salvar</button>
     <button><a href="{{ url('aluno') }}">Voltar</a></button>
 </form>

@@ -5,20 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Aluno extends Model
+class Categoria extends Model
 {
     use HasFactory;
 
-    protected $table = "alunos";
+    protected $table = "categorias";
     //app/Models/
     protected $fillable = [
         "nome",
-        "telefone",
-        "cpf",
-        "categoria_id",
-    ];
-
-    protected $casts = [
-        'categoria_id'=>'integer'
     ];
 }
