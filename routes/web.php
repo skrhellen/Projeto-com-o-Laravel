@@ -24,3 +24,6 @@ Route::delete('/aluno/{$aluno}',
 */
 Route::resource('aluno', AlunoController::class);
 Route::post('/aluno/search', [AlunoController::class, "search"])->name('aluno.search');
+
+Route::resource('professor', ProfessorController::class);
+Route::post('/professor/search', [ProfessorController::class, "search"])->name('professor.search');

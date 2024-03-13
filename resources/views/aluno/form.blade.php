@@ -9,6 +9,7 @@
     }
 @endphp
 
+<h3>Formulário de Aluno</h3>
 <form action="{{ $route }}" method="post">
 
     @csrf
@@ -39,8 +40,8 @@
         @endforeach
     </select><br>
 
-    <button type="submit">Salvar</button>
-    <button><a href="{{ url('aluno') }}">Voltar</a></button>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="{{ url('aluno') }}" class="btn btn-primary">Voltar</a>
 </form>
 
 @stop
