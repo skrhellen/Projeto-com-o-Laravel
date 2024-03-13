@@ -85,6 +85,12 @@ Código-Fonte do Projeto desenvolvido durante as aulas de  desenvolvido durante 
 **Acessar o sistema**  
 `http://localhost:8000/`
 
+**Criando multiplos arquivos junto com o Model - Migração, Factory, Seed, Controller com Resource**  
+`php artisan make:model NomeModel -mfscr`
+
+- [Mais detalhes ver documentação oficial do Laravel](https://laravel.com/docs/10.x/eloquent#generating-model-classes).
+
+
 ## Comandos básicos Git
 
 **Clonar o projeto**  
