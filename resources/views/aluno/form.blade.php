@@ -9,7 +9,7 @@
     }
 @endphp
 
-<h3>Formulário de Aluno</h3>
+<h3>Cadastramento de Joias</h3>
 <form action="{{ $route }}" method="post">
 
     @csrf
