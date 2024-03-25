@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aluno;
+use App\Models\Joia;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 
-class AlunoController extends Controller
+class JoiaController extends Controller
 {
     public function index()
     {
-        //app/http/Controller
-        $dados = Aluno::all();
+        $dados = Joia::all();
 
-        // dd($dados);
-
-        return view("aluno.list", ["dados" => $dados]);
+        return view("joia.list", ["dados" => $dados]);
     }
 
     /**
@@ -25,38 +22,39 @@ class AlunoController extends Controller
     {
         $categorias = Categoria::all();
 
-        return view("aluno.form",['categorias'=>$categorias]);
+        return view("joia.form",['categorias'=>$categorias]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) //$request é usado para acessar e manipular os dados enviados pelo usuário. 
     {
         //app/http/Controller
 
         $request->validate([
             'nome' => "required|max:100",
-            'cpf' => "required|max:16",
+            'material' => "required",
             'categoria_id' => "required",
-            'telefone' => "nullable"
+            'valor' => "required",
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
-            'cpf.required' => "O :attribute é obrigatório",
-            'cpf.max' => "Só é permitido 16 caracteres",
+            'material.required' => "O :attribute é obrigatório",
             'categoria_id.required' => "O :attribute é obrigatório",
+            'valor.required' => "O :attribute é obrigatório",
+            
         ]);
 
-        Aluno::create(
+        Joia::create(
             [
                 'nome' => $request->nome,
-                'telefone' => $request->telefone,
-                'cpf' => $request->cpf,
+                'material' => $request->material,
+                'valor' => $request->valor,
                 'categoria_id' => $request->categoria_id,
             ]
         );
-        return redirect('aluno');
+        return redirect('joia');
     }
 
     /**
@@ -72,11 +70,11 @@ class AlunoController extends Controller
      */
     public function edit(string $id)
     {
-        $dado = Aluno::findOrFail($id);
+        $dado = Joia::findOrFail($id);
 
         $categorias = Categoria::all();
 
-        return view("aluno.form", [
+        return view("joia.form", [
             'dado' => $dado,
             'categorias'=> $categorias
         ]);
@@ -87,59 +85,58 @@ class AlunoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //app/http/Controller
 
         $request->validate([
             'nome' => "required|max:100",
-            'cpf' => "required|max:16",
+            'material' => "required",
             'categoria_id' => "required",
-            'telefone' => "nullable"
+            'valor' => "required",
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
-            'cpf.required' => "O :attribute é obrigatório",
-            'cpf.max' => "Só é permitido 16 caracteres",
+            'material.required' => "O :attribute é obrigatório",
             'categoria_id.required' => "O :attribute é obrigatório",
+            'valor.required' => "O :attribute é obrigatório",
+            
         ]);
-
-        Aluno::updateOrCreate(
+        Joia::updateOrCreate(
             ['id' => $request->id],
             [
                 'nome' => $request->nome,
-                'telefone' => $request->telefone,
-                'cpf' => $request->cpf,
+                'material' => $request->material,
+                'valor' => $request->valor,
                 'categoria_id' => $request->categoria_id,
             ]
         );
 
-        return redirect('aluno');
+        return redirect('joia');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy($id) //DEFINIU O PARAMETRO id
     {
-        $dado = Aluno::findOrFail($id);
+        $dado = Joia::findOrFail($id); //busca um registro com o ID fornecido
         // dd($dado);
         $dado->delete();
 
-        return redirect('aluno');
+        return redirect('joia'); //rediciona parade volta para a opagia de joia
     }
 
+    //campo de busca
     public function search(Request $request)
     {
-        if (!empty($request->nome)) {
-            $dados = Aluno::where(
+        if (!empty($request->nome)) { //'!empty' verifica se uma variável está vazia ou não
+            $dados = Joia::where(
                 "nome",
                 "like",
-                "%" . $request->nome . "%"
-            )->get();
+                "%" . $request->nome . "%" //% é um caractere curinga em consultas SQL que indica que pode haver qualquer coisa antes ou depois do valor de nome
+            )->get(); //executa a cosulta
         } else {
-            $dados = Aluno::all();
+            $dados = Joia::all(); //mostra todas as instancias da classse 'joia' no banco de dados sem filtros
         }
-        // dd($dados);
 
-        return view("aluno.list", ["dados" => $dados]);
+        return view("joia.list", ["dados" => $dados]);
     }
 }

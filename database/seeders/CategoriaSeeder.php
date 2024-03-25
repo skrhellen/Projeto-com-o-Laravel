@@ -11,19 +11,12 @@ class CategoriaSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run() 
     {
-       Categoria::factory()->count(3)->create();
-       // ou
-        /*
-       Categoria::factory()
-       ->count(3)
-       ->sequence([
-           'nome' => "Categoria 01",
-           'nome' => "Categoria 02",
-           'nome' => "Categoria 03",
-           ])
-       ->create();
-       */
+        Categoria::insert([
+            ['categorias' => "Joia"],
+            ['categorias' => "Semijoia"],
+        ]);
+       
     }
 }

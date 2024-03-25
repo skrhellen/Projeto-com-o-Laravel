@@ -1,29 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\JoiaController;
+use App\Http\Controllers\VendaController;
+use App\Http\Controllers\MarcaController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () { //'Route::get('/')' = Define uma rota ('/') para direcionar solicitações HTTP para o código correspondente que deve ser executado. 
+  return view('welcome'); // função que está retornando a view 'welcome' como resposta para a solicitação GET da rota '/'.
 });
-/*
-//routes/web.php
-Route::get('/aluno', [AlunoController::class, "index"]);
-//carrega o formulário
-Route::get('/aluno/create', [AlunoController::class, "create"]);
-//recebe os dados do formulario para ser salvo na função store
-Route::post('/aluno', [AlunoController::class, "store"])->name('aluno.store');
-//Route::get('/aluno/destroy/{$id}', [AlunoController::class, "destroy"])->name('aluno.destroy');
-Route::delete('/aluno/{$aluno}',
- [AlunoController::class, "destroy"])->name('aluno.destroy');
 
- Route::get('/aluno/edit/{id}', [AlunoController::class, "edit"])
-    ->name('aluno.edit');
- Route::post('/aluno',
-  [AlunoController::class, "update"])->name('aluno.update');
-*/
-Route::resource('aluno', AlunoController::class);
-Route::post('/aluno/search', [AlunoController::class, "search"])->name('aluno.search');
+Route::resource('joia', JoiaController::class); //(--resource)cria várias rotas para um recurso em um único comando.
+Route::post('/joia/search', [JoiaController::class, "search"])->name('joia.search');
 
-Route::resource('professor', ProfessorController::class);
-Route::post('/professor/search', [ProfessorController::class, "search"])->name('professor.search');
+Route::resource('venda', VendaController::class);
+Route::post('/venda/search', [VendaController::class, "search"])->name('venda.search');
+
+Route::resource('marca', MarcaController::class);
+Route::post('/marca/search', [MarcaController::class, "search"])->name('marca.search');
